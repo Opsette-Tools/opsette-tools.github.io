@@ -1,50 +1,79 @@
 :root {
+  /* Opsette brand */
   --bg: #fafafa;
   --bg-card: #ffffff;
   --fg: #1a1a1a;
-  --fg-muted: #666;
-  --border: #ececec;
-  --accent: #2563eb;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04);
-  --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.06), 0 12px 24px rgba(0, 0, 0, 0.08);
+  --fg-muted: #666666;
+  --border: #e5e5e5;
+  --border-soft: #ececec;
+  --primary: #2f4f46;
+  --primary-light: #426f62;
+  --gold: #cfae60;
+  --gold-light: #dbc287;
+  --gold-dark: #c2993a;
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 8px 25px rgba(47, 79, 70, 0.10);
   --radius: 14px;
+  --radius-lg: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f0f10;
-    --bg-card: #18181b;
-    --fg: #f4f4f5;
-    --fg-muted: #a1a1aa;
-    --border: #27272a;
-    --accent: #60a5fa;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.5), 0 12px 24px rgba(0, 0, 0, 0.4);
-  }
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background: var(--bg);
   color: var(--fg);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.hero {
-  padding: 4.5rem 1.5rem 3rem;
-  text-align: center;
+a { color: inherit; }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: var(--bg-card);
   border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: saturate(180%) blur(8px);
+}
+
+.site-header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-mark {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .brand-mark { height: 44px; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 5rem 1.5rem 3.5rem;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at top, rgba(207, 174, 96, 0.08), transparent 60%),
+    var(--bg);
 }
 
 .hero-inner {
@@ -52,106 +81,222 @@ body {
   margin: 0 auto;
 }
 
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 1.1rem;
+}
+
 .hero h1 {
-  font-size: clamp(2.25rem, 6vw, 3.25rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0 0 1rem;
+  font-size: clamp(2.4rem, 6.5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.85rem;
+  color: var(--fg);
+  line-height: 1.1;
 }
 
 .tagline {
-  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-  color: var(--fg);
-  margin: 0 0 0.5rem;
-}
-
-.subtagline {
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
   color: var(--fg-muted);
   margin: 0;
-  font-size: 1rem;
+  font-weight: 400;
 }
 
+/* ---------- Tools grid ---------- */
 main {
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 4rem;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 0 2rem;
+}
+
+.filter-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--fg-muted);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1.05rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.filter-btn.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--fg-muted);
+  padding: 3rem 1rem;
+  margin: 0;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.card[hidden] {
+  display: none;
 }
 
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem;
+  border-radius: var(--radius-lg);
   text-decoration: none;
   color: inherit;
-  box-shadow: var(--shadow);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
 }
 
 .card:hover,
 .card:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--primary-light);
   outline: none;
 }
 
-.card-icon {
-  font-size: 2rem;
-  line-height: 1;
-  margin-bottom: 0.85rem;
+/* Card media (image or letter fallback) */
+.card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, var(--card-accent, var(--primary)) 0%, color-mix(in srgb, var(--card-accent, var(--primary)) 70%, #000) 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Letter fallback shown when image is missing.
+   The onerror handler on <img> removes the <img> and adds .no-image
+   to .card-media, then we render the letter from the parent .card's
+   data-letter attribute via a pseudo on the parent link. */
+.card[data-letter] {
+  position: relative;
+}
+
+.card .card-media.no-image::after {
+  content: attr(data-letter);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.card-body {
+  padding: 1.1rem 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-top: 1px solid var(--border-soft);
 }
 
 .card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 0.4rem;
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin: 0;
   letter-spacing: -0.01em;
+  color: var(--fg);
 }
 
 .card-desc {
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   color: var(--fg-muted);
   margin: 0;
+  line-height: 1.45;
 }
 
-footer {
+/* ---------- Footer ---------- */
+.site-footer {
   border-top: 1px solid var(--border);
-  padding: 2rem 1.5rem 3rem;
+  background: var(--bg-card);
+}
+
+.site-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.25rem 1.5rem 2.5rem;
   text-align: center;
   color: var(--fg-muted);
-  font-size: 0.9rem;
 }
 
-footer a {
-  color: var(--accent);
+.footer-brand {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.footer-brand a {
+  color: var(--primary);
   text-decoration: none;
+  font-weight: 500;
 }
 
-footer a:hover {
-  text-decoration: underline;
+.footer-brand a:hover { text-decoration: underline; }
+
+.footer-brand .dot {
+  margin: 0 0.6rem;
+  color: var(--border);
 }
 
-footer .muted {
-  margin-top: 0.5rem;
+.muted {
+  margin: 0;
   font-size: 0.85rem;
+  color: var(--fg-muted);
 }
 
-@media (max-width: 480px) {
-  .hero {
-    padding: 3rem 1.25rem 2.25rem;
-  }
-  main {
-    padding: 2rem 1.25rem 3rem;
-  }
-  .grid {
-    grid-template-columns: 1fr;
-  }
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .site-header-inner { padding: 14px 18px; }
+  .hero { padding: 3rem 1.25rem 2.25rem; }
+  main { padding: 1.5rem 1.25rem 3rem; }
+  .grid { grid-template-columns: 1fr; gap: 1rem; }
 }

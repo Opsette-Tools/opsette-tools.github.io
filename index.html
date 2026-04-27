@@ -3,116 +3,236 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opsette Tools — Simple tools for everyday operations</title>
-  <meta name="description" content="A collection of small, focused web tools for planning, tracking, and getting things done." />
+  <title>Opsette Tools — Free, focused tools</title>
+  <meta name="description" content="A collection of free, focused web tools from Opsette. No accounts. No installs." />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-inner">
-      <h1>Opsette Tools</h1>
-      <p class="tagline">Simple, focused web tools for everyday operations.</p>
-      <p class="subtagline">No accounts. No installs. Just open and use.</p>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="https://opsette.io" aria-label="Opsette home">
+        <img src="logo.svg" alt="Opsette" class="brand-mark" />
+      </a>
     </div>
   </header>
 
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Opsette Tools</span>
+      <h1>Free, focused tools.</h1>
+      <p class="tagline">No accounts. No installs.</p>
+    </div>
+  </section>
+
   <main>
     <section class="tools" aria-label="Available tools">
-      <div class="grid">
-        <a class="card" href="https://tools.opsette.io/streak-tracker/">
-          <div class="card-icon" aria-hidden="true">🔥</div>
-          <h2 class="card-title">Streak Tracker</h2>
-          <p class="card-desc">Track daily habits and build streaks.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/content-flow/">
-          <div class="card-icon" aria-hidden="true">🌊</div>
-          <h2 class="card-title">Content Flow</h2>
-          <p class="card-desc">Plan and organize your content pipeline.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/process-checklist/">
-          <div class="card-icon" aria-hidden="true">✅</div>
-          <h2 class="card-title">Process Checklist</h2>
-          <p class="card-desc">Step-by-step checklists for repeatable work.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/route-planner/">
-          <div class="card-icon" aria-hidden="true">🗺️</div>
-          <h2 class="card-title">Route Planner</h2>
-          <p class="card-desc">Plan multi-stop routes and trips.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/decision-wheel/">
-          <div class="card-icon" aria-hidden="true">🎡</div>
-          <h2 class="card-title">Decision Wheel</h2>
-          <p class="card-desc">Spin a wheel to choose between options.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/objection-navigator/">
-          <div class="card-icon" aria-hidden="true">🧭</div>
-          <h2 class="card-title">Objection Navigator</h2>
-          <p class="card-desc">Work through sales objections with prepared responses.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/space-planner/">
-          <div class="card-icon" aria-hidden="true">📐</div>
-          <h2 class="card-title">Space Planner</h2>
-          <p class="card-desc">Sketch out and plan physical spaces.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/job-math/">
-          <div class="card-icon" aria-hidden="true">🧮</div>
-          <h2 class="card-title">Job Math</h2>
-          <p class="card-desc">Quick calculations for jobs and quotes.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/script-builder/">
-          <div class="card-icon" aria-hidden="true">📝</div>
-          <h2 class="card-title">Script Builder</h2>
-          <p class="card-desc">Build call and sales scripts you can reuse.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/digital-card/">
-          <div class="card-icon" aria-hidden="true">💳</div>
-          <h2 class="card-title">Digital Card</h2>
-          <p class="card-desc">Create shareable digital business cards.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/qr-creator/">
-          <div class="card-icon" aria-hidden="true">🔲</div>
-          <h2 class="card-title">QR Creator</h2>
-          <p class="card-desc">Generate QR codes for any link or text.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/random-picker/">
-          <div class="card-icon" aria-hidden="true">🎲</div>
-          <h2 class="card-title">Random Picker</h2>
-          <p class="card-desc">Pick a random item from your list.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/review-request/">
-          <div class="card-icon" aria-hidden="true">⭐</div>
-          <h2 class="card-title">Review Request</h2>
-          <p class="card-desc">Request reviews from your customers.</p>
-        </a>
-
-        <a class="card" href="https://tools.opsette.io/receipt-maker/">
-          <div class="card-icon" aria-hidden="true">🧾</div>
-          <h2 class="card-title">Receipt Maker</h2>
-          <p class="card-desc">Generate clean, printable receipts.</p>
-        </a>
+      <div class="filter-bar" role="tablist" aria-label="Filter tools by category">
+        <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-btn" data-filter="marketing" role="tab" aria-selected="false">Marketing</button>
+        <button class="filter-btn" data-filter="sales" role="tab" aria-selected="false">Sales</button>
+        <button class="filter-btn" data-filter="productivity" role="tab" aria-selected="false">Productivity</button>
+        <button class="filter-btn" data-filter="finance" role="tab" aria-selected="false">Finance</button>
+        <button class="filter-btn" data-filter="utility" role="tab" aria-selected="false">Utility</button>
       </div>
+
+      <div class="grid">
+
+        <a class="card" href="https://tools.opsette.io/streak-tracker/" data-letter="S" data-category="productivity" style="--card-accent:#2f4f46;">
+          <div class="card-media">
+            <img src="images/streak-tracker.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Streak Tracker</h2>
+            <p class="card-desc">Track daily habits and build streaks.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/content-flow/" data-letter="C" data-category="marketing" style="--card-accent:#426f62;">
+          <div class="card-media">
+            <img src="images/content-flow.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Content Flow</h2>
+            <p class="card-desc">Plan and organize your content pipeline.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/process-checklist/" data-letter="P" data-category="productivity" style="--card-accent:#2f4f46;">
+          <div class="card-media">
+            <img src="images/process-checklist.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Process Checklist</h2>
+            <p class="card-desc">Step-by-step checklists for repeatable work.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/route-planner/" data-letter="R" data-category="utility" style="--card-accent:#cfae60;">
+          <div class="card-media">
+            <img src="images/route-planner.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Route Planner</h2>
+            <p class="card-desc">Plan multi-stop routes and trips.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/decision-wheel/" data-letter="D" data-category="productivity" style="--card-accent:#cfae60;">
+          <div class="card-media">
+            <img src="images/decision-wheel.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Decision Wheel</h2>
+            <p class="card-desc">Spin a wheel to choose between options.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/objection-navigator/" data-letter="O" data-category="sales" style="--card-accent:#426f62;">
+          <div class="card-media">
+            <img src="images/objection-navigator.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Objection Navigator</h2>
+            <p class="card-desc">Work through sales objections with prepared responses.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/job-math/" data-letter="J" data-category="finance" style="--card-accent:#cfae60;">
+          <div class="card-media">
+            <img src="images/job-math.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Job Math</h2>
+            <p class="card-desc">Quick calculations for jobs and quotes.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/script-builder/" data-letter="S" data-category="sales" style="--card-accent:#426f62;">
+          <div class="card-media">
+            <img src="images/script-builder.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Script Builder</h2>
+            <p class="card-desc">Build call and sales scripts you can reuse.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/digital-card/" data-letter="D" data-category="marketing" style="--card-accent:#2f4f46;">
+          <div class="card-media">
+            <img src="images/digital-card.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Digital Card</h2>
+            <p class="card-desc">Create shareable digital business cards.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/qr-creator/" data-letter="Q" data-category="marketing" style="--card-accent:#cfae60;">
+          <div class="card-media">
+            <img src="images/qr-creator.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">QR Creator</h2>
+            <p class="card-desc">Generate QR codes for any link or text.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/random-picker/" data-letter="R" data-category="productivity" style="--card-accent:#426f62;">
+          <div class="card-media">
+            <img src="images/random-picker.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Random Picker</h2>
+            <p class="card-desc">Pick a random item from your list.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/review-request/" data-letter="R" data-category="marketing" style="--card-accent:#cfae60;">
+          <div class="card-media">
+            <img src="images/review-request.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Review Request</h2>
+            <p class="card-desc">Request reviews from your customers.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/receipt-maker/" data-letter="R" data-category="finance" style="--card-accent:#2f4f46;">
+          <div class="card-media">
+            <img src="images/receipt-maker.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Receipt Maker</h2>
+            <p class="card-desc">Generate clean, printable receipts.</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://tools.opsette.io/signature-studio/" data-letter="S" data-category="marketing" style="--card-accent:#cfae60;">
+          <div class="card-media">
+            <img src="images/signature-studio.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image');this.remove();" />
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Signature Studio</h2>
+            <p class="card-desc">Design polished email signatures in minutes.</p>
+          </div>
+        </a>
+
+      </div>
+
+      <p class="empty-state" hidden>No tools in this category yet.</p>
     </section>
   </main>
 
-  <footer>
-    <p>
-      <a href="https://github.com/Opsette-Tools">View on GitHub</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://opsette.io">opsette.io</a>
-    </p>
-    <p class="muted">Each tool is open source and runs entirely in your browser.</p>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="footer-brand">
+        <a href="https://opsette.io">opsette.io</a>
+        <span class="dot">·</span>
+        <a href="https://github.com/Opsette-Tools">GitHub</a>
+      </p>
+      <p class="muted">Each tool is open source and runs entirely in your browser.</p>
+    </div>
   </footer>
+
+  <script>
+    (function () {
+      // Mirror data-letter from each .card onto its .card-media so the
+      // CSS letter-tile fallback works when an image is missing.
+      document.querySelectorAll('.card[data-letter]').forEach(function (card) {
+        var media = card.querySelector('.card-media');
+        if (media) media.setAttribute('data-letter', card.getAttribute('data-letter'));
+      });
+
+      // Category filter
+      var buttons = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('.card[data-category]');
+      var emptyState = document.querySelector('.empty-state');
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var filter = btn.getAttribute('data-filter');
+
+          buttons.forEach(function (b) {
+            var active = b === btn;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+
+          var visible = 0;
+          cards.forEach(function (card) {
+            var show = filter === 'all' || card.getAttribute('data-category') === filter;
+            card.hidden = !show;
+            if (show) visible++;
+          });
+
+          if (emptyState) emptyState.hidden = visible > 0;
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
