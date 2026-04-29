@@ -201,35 +201,12 @@ main {
   justify-content: center;
 }
 
-.card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+.card-icon {
+  width: 80px;
+  height: 80px;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
   display: block;
-}
-
-/* Letter fallback shown when image is missing.
-   The onerror handler on <img> removes the <img> and adds .no-image
-   to .card-media, then we render the letter from the parent .card's
-   data-letter attribute via a pseudo on the parent link. */
-.card[data-letter] {
-  position: relative;
-}
-
-.card .card-media.no-image::after {
-  content: attr(data-letter);
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 4.5rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
 }
 
 .card-body {
