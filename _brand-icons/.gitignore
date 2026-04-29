@@ -1,0 +1,6 @@
+# Generated artifacts — regenerate with `node generate.mjs`.
+sources/
+output/
+
+# Node
+node_modules/

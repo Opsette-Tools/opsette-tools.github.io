@@ -1,0 +1,15 @@
+{
+  "name": "opsette-brand-icons",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Generates the per-tool brand icon set (favicon.svg, favicon.ico, icon-192.png, icon-512.png) for every Opsette tool from a single Phosphor source SVG. See c:/Opsette Tools/ICONS_AND_BRANDING.md for the spec.",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "dry-run": "node generate.mjs --dry-run"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5",
+    "png-to-ico": "^2.1.8"
+  }
+}
