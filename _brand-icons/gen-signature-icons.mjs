@@ -74,6 +74,9 @@ async function main() {
   for (const [key, { color, path: p }] of Object.entries(SOCIAL)) {
     await renderPng(svg(p, color), path.join(OUT, `social-${key}.png`));
     count++;
+    // White variant, for social icons sitting on a colored bar (Contact Rail).
+    await renderPng(svg(p, "#ffffff"), path.join(OUT, `social-${key}-white.png`));
+    count++;
   }
 
   for (const [key, p] of Object.entries(CONTACT)) {
