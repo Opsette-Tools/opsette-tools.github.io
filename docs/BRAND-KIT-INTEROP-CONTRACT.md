@@ -261,7 +261,7 @@ Example: `{ assets: [ {label:"LinkedIn banner", kind:"banner", image:"data:…",
 
 **To add in Icon Kit:**
 - **"Export to Brand Board"** → build the `assets[]` list from whatever the user generated (each banner mode output, the avatar, the favicon…), each as a rendered `image` data URL with `label` + `width`/`height`. Send as many or as few as exist.
-- **"Reopen" (self-import)** → optional but consistent; paste a `social` blob back to restore the Icon Kit session state if feasible.
+- **"Reopen" (self-import)** → ✅ SHIPPED 2026-07-11 (see below). The blob carries `data.config` (the full builder state) alongside `data.assets[]`, so the SAME blob does double duty: Brand Board reads `assets[]`, Reopen reads `config` to rebuild the whole design losslessly.
 
 **Brand Board consumes (BUILT 2026-07-11):** `ingestSocialPayload` reads `data.assets[]` into `socialAssets`; the board renders a **"Social & Brand Assets"** block — wide items (ratio ≥ 1.8) span a full row like banners, near-square items (avatar/favicon/icon) sit compact side by side. The whole blob is stored (`sourceBlobs.social`) — archived, re-copyable, pasteable back. A manual **"Upload images"** multi-file fallback exists (drop banner/favicon PNGs directly, each auto-labeled + relabelable). **No per-type logic** — any image with dimensions lays out sensibly, so Icon Kit can add asset types later with zero Brand Board changes.
 
@@ -294,6 +294,24 @@ Built, typechecked (`tsc -b`), production-built, committed + pushed. The export 
 > - **Duotone / brand-tinted photo** bg option (photo mapped to brand colors) so a photo doesn't fight the palette.
 > - **Auto text-contrast** — warn or auto-flip text color when it fails WCAG on the chosen bg (same guardrail QR Creator got).
 > - **Font choice** (borrow Palette Studio's pairing library) instead of Inter-only.
+
+### ✅ SHIPPED in Icon Kit — 2026-07-11 (premium banner builder + reopen)
+
+The whole premium-enhancement backlog above was built in one session, plus the missing **reopen** half of the triple duty. Typechecked (`tsc -b`), production-built, committed + pushed. Two commits: the premium builder, then reopen.
+
+**Premium banner builder** (`src/lib/icon-kit/canvas.ts`, `SocialPanel.tsx`, new `src/lib/icon-kit/social-design.ts` + `src/components/icon-kit/social-controls.tsx` + `SafeZoneOverlay.tsx`):
+- **Design layers** shared by the OG card and all three banners, drawn in z-order background → watermark → texture → content: **large faded logo watermark** (bleeds off a chosen edge, opacity/size controls); **10 texture/shape options** (corner glow, diagonal block, accent rule, dot grid, arc lines, vertical stripes, confetti, wave band, blueprint grid, halftone) tinted from an **accent color**; **duotone / brand-tinted photo** backgrounds; **eyebrow line** for real 3-tier type hierarchy (eyebrow → name → tagline); **font-pairing library** (10 pairings borrowed from Palette Studio — no longer Inter-only).
+- **Distinct banner layouts** beyond Left/Centered: **photo panel** (a person/product photo carved into one side behind a straight/diagonal/curve divider, with a **drag-to-position focal point + zoom** so a portrait shows the face, not the chin); a text-forward **Highlight** layout; and an optional **contact bar** (website / phone / CTA pill) that rides on any layout.
+- **Highlight is a style category** (bold color / underline / marker block / glow) chosen by **clicking words** in the name or tagline (multi-word + scattered selection; no typed phrase). Shows only on the Highlight layout. Long **taglines wrap to 2 lines** on narrow layouts (no hard char cap).
+- **Guardrails + UX:** WCAG **auto-contrast shield** with one-tap flip (same guardrail QR Creator got); **preview-only safe-zone avatar overlay** (never in the export); **wide sticky two-column layout** (controls left, live previews right) that stacks on mobile.
+
+**Reopen (self-import) — the fix for the "if feasible" gap:** the frozen `type:"social"` shape only carried `assets[]` (rendered images = output, not inputs), so a pasted blob couldn't rebuild the design. Fixed by adding **`data.config`** (the full builder state) to the export — the board ignores it, Reopen consumes it. New `src/lib/icon-kit/brand-kit.ts` has `toSocialKitJson(assets, config)` and `fromSocialKitJson(raw)` (strict envelope, never throws, `null` for junk; `config` optional so **pre-config blobs still validate** — Reopen tells the user plainly to re-export rather than silently doing nothing). A **"Reopen a saved design"** button + paste modal restores name/font/background/watermark/texture/photo/highlight/layouts/contact bar via a single `patch` dispatch. Same "one blob does both jobs" model as Palette/Signature/QR.
+- **Note:** blobs exported BEFORE this change (images only, no `config`) can't reopen losslessly — Reopen surfaces a clear message. Every export from now on is self-contained and round-trips.
+- Persistence bumped to `iconkit.social.v2` (state shape changed).
+
+**Product call unchanged:** the banner builder still **ships in the tool but is held from the Fiverr gig** until Ruthnie is confident in a color/design direction. The reopen + premium work makes it gig-ready when she is.
+
+**Still open (separate breakout session):** wire the **Favicon** tab to also export to Brand Board (currently only Social & Banners exports) — a favicon/app-icon set could fill out the board's "Social & Brand Assets" page. Same `type:"social"` `assets[]` shape (`kind:"favicon"`/`"icon"`), no board-side change needed.
 
 ---
 
