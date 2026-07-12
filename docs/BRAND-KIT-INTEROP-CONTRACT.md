@@ -236,13 +236,64 @@ Both halves of the triple duty are built, typechecked (`tsc -b`), and verified e
 
 ---
 
-## 5. Icon Kit → image upload only (NO JSON needed for v1)
+## 5. Icon Kit → `type: "social"`  (REVISED 2026-07-11 — social + brand assets, blob-first)
 
-Exports `favicons.zip` (svg/ico/PNGs 16–512 + maskable + manifest) and a separate 1200×630 og-image.png. The **logo mark** Brand Board wants is `icon-512.png` from the zip.
+**The plan grew:** Icon Kit's Brand Board export is NOT just a logo — it's a **generic bag of brand images**: social banners (LinkedIn/Facebook/X, any platform), a profile avatar, a **favicon** (real need — a client often has a logo but no favicon), app icons, whatever Icon Kit produces. Brand Board renders them generically by aspect ratio, so **Icon Kit can send any mix and it just works — no fixed set required.**
 
-- Note: the **original hi-res logo is discarded** after rasterizing to favicon sizes. If you want a crisp large logo on the board, upload the source logo directly to Brand Board (it already has a logo upload), OR add a standalone `logo.png` export to Icon Kit later.
+```ts
+interface SocialPayload {
+  type: "social";
+  v: 1;
+  source: "opsette";
+  data: {
+    // An OPEN-ENDED list. Each item needs `image`; the rest is optional.
+    assets: {
+      label: string;        // shown under the image, e.g. "LinkedIn banner", "Favicon"
+      kind?: string;        // hint only: "banner" | "avatar" | "favicon" | "icon" | ...
+      image: string;        // the rendered image as a data URL (PNG/SVG). REQUIRED.
+      width?: number;       // natural px — drives layout (wide→banner row, square→compact)
+      height?: number;
+    }[];
+  };
+}
+```
+Example: `{ assets: [ {label:"LinkedIn banner", kind:"banner", image:"data:…", width:1584, height:396}, {label:"Facebook cover", kind:"banner", image:"data:…", width:820, height:312}, {label:"Profile avatar", kind:"avatar", image:"data:…", width:400, height:400}, {label:"Favicon", kind:"favicon", image:"data:…", width:512, height:512} ] }`
 
-**Brand Board consumes:** the logo via its existing upload (source logo preferred over `icon-512.png` for crispness).
+**To add in Icon Kit:**
+- **"Export to Brand Board"** → build the `assets[]` list from whatever the user generated (each banner mode output, the avatar, the favicon…), each as a rendered `image` data URL with `label` + `width`/`height`. Send as many or as few as exist.
+- **"Reopen" (self-import)** → optional but consistent; paste a `social` blob back to restore the Icon Kit session state if feasible.
+
+**Brand Board consumes (BUILT 2026-07-11):** `ingestSocialPayload` reads `data.assets[]` into `socialAssets`; the board renders a **"Social & Brand Assets"** block — wide items (ratio ≥ 1.8) span a full row like banners, near-square items (avatar/favicon/icon) sit compact side by side. The whole blob is stored (`sourceBlobs.social`) — archived, re-copyable, pasteable back. A manual **"Upload images"** multi-file fallback exists (drop banner/favicon PNGs directly, each auto-labeled + relabelable). **No per-type logic** — any image with dimensions lays out sensibly, so Icon Kit can add asset types later with zero Brand Board changes.
+
+> **Multi-page note (planned, not built):** the social block is content-heavy (multiple banners). Ruthnie decided this pushes Brand Board to a **paged deliverable** — Page 1 Foundation (palette/type/mock), Page 2 Applications (signature/QR/card), Page 3 Social (banners). Labeled, unified pages; multi-page PDF + per-page PNGs for 3 gallery images. That's the next substantial Brand Board session AFTER the kit apps are content-complete. See `FIVERR-KIT-BUILD-PLAN.md`.
+
+### ✅ SHIPPED in Icon Kit — 2026-07-11 (Social & Banners)
+
+Built, typechecked (`tsc -b`), production-built, committed + pushed. The export matches the frozen `type:"social"` shape above exactly (verified against the board's `ingestSocialPayload` / `SocialAsset` type).
+
+- **One design → four outputs:** a **Social card** (1200×630 OG) + three profile banners (**LinkedIn 1584×396**, **Facebook 820×312**, **Twitter/X 1500×500**). Shared inputs (brand name, tagline, text color, logo, background) drive all four live previews at once — no rebuilding per platform.
+- **Export** builds `data.assets[]` from the **selected** outputs (per-tile checkboxes + "Select all"), each a rendered PNG data URL with `label` ("LinkedIn banner"…), `kind` ("banner"/"card"), and natural `width`/`height`. One paste brings the whole selection over. `renderBanner()` / `renderSocial()` in `src/lib/icon-kit/canvas.ts`; export + selection UI in `src/components/icon-kit/SocialPanel.tsx`.
+- **"Download selected as PNG"** for the ZIP path; per-tile PNG download too.
+
+**Design decisions (why it's built this way):**
+- **Merged into the existing Social tab, NOT a new tab** (Ruthnie's call) — the four sizes share identical inputs, so a size/preview list beats N tabs that force rebuilding the same design.
+- **Per-output layout (Option B):** shared content, each preview its own Left/Centered toggle (+ Split for the card) — a wide banner and a square card frame differently.
+- **Safe-zone-aware framing** — the real quality lift: all three platforms overlay a bottom-left avatar, so content is biased upward (~42% mid) and, in Left layout, starts right of a per-platform avatar-safe column (Facebook 22% / Twitter 16% / LinkedIn 14%). The profile pic never lands on the brand.
+- **Photo bg = Social card only**; banners use solid/gradient (a cropped photo behind a thin banner reads badly).
+- **localStorage persistence** on BOTH Social + Favicon panels (`iconkit.social.v1` / `iconkit.favicon.v1`, via new `usePersistentReducer` hook) — switching tabs / reloading no longer wipes a client's in-progress work (the tab-reset gap Ruthnie flagged).
+- **Banner PNGs are solid, edge-to-edge, exact ratio — never transparent** (a transparent social banner looks broken on the platforms). If the board ever shows **white beside a banner**, that's the board slot white-filling a non-full-width image → **board-side fix**: size the slot to the asset's ratio (`width`/`height` are sent) or letterbox transparent, don't white-fill.
+
+**Ruthnie's product call:** the banner builder **ships in the tool but is held back from the Fiverr gig for now** — she wants to study real banner design first so no buyer feels shortchanged. Reopen for the gig once she's confident in a color/design direction.
+
+> **Premium-enhancement backlog (social banners)** — captured for when she circles back, to lift it above "solid/gradient/image bg":
+> - **Safe-zone guide overlay** (preview-only, never exported) — a ghosted circle showing where each platform's avatar lands, so clearance is visible while designing.
+> - **Large faded logo watermark** as a texture layer — the single biggest "designed vs. template" lift beyond flat color.
+> - **Subtle geometric/pattern layer** — soft shapes, a diagonal color block, a thin accent rule, a dot grid — one tasteful texture element.
+> - **Eyebrow line** (small ALL-CAPS role/location above the name) for real 3-tier type hierarchy, not just big/small.
+> - **Genuinely distinct layout presets** (asymmetric anchor; logo-lockup left + tagline right) rather than Left/Centered variants.
+> - **Duotone / brand-tinted photo** bg option (photo mapped to brand colors) so a photo doesn't fight the palette.
+> - **Auto text-contrast** — warn or auto-flip text color when it fails WCAG on the chosen bg (same guardrail QR Creator got).
+> - **Font choice** (borrow Palette Studio's pairing library) instead of Inter-only.
 
 ---
 
