@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opsette Tools — Free, focused tools</title>
-  <meta name="description" content="A collection of free, focused web tools from Opsette. No accounts. No installs." />
+  <title>Opsette Tools — Free, focused tools for running a business</title>
+  <meta name="description" content="A growing set of free, focused web tools from Opsette. Build a brand kit, capture contacts, plan your work. No accounts, no installs — most run entirely in your browser." />
   <link rel="icon" type="image/svg+xml" href="logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,19 +17,129 @@
       <a class="brand" href="https://opsette.io" aria-label="Opsette home">
         <img src="logo.svg" alt="Opsette" class="brand-mark" />
       </a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="#brand-kit">Brand Kit</a>
+        <a href="#networking">Networking</a>
+        <a href="#library">All tools</a>
+      </nav>
     </div>
   </header>
 
+  <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-inner">
       <span class="eyebrow">Opsette Tools</span>
       <h1>Free, focused tools.</h1>
       <p class="tagline">No accounts. No installs.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#brand-kit">See the Brand Kit</a>
+        <a class="btn btn-ghost" href="#library">Browse all tools</a>
+      </div>
     </div>
   </section>
 
   <main>
-    <section class="tools" aria-label="Available tools">
+
+    <!-- ============ BRAND KIT PIPELINE ============ -->
+    <section class="feature" id="brand-kit" aria-labelledby="brand-kit-title">
+      <div class="feature-head">
+        <span class="feature-eyebrow">Works together</span>
+        <h2 id="brand-kit-title">The Brand Kit pipeline</h2>
+        <p class="feature-lede">
+          Five tools each make one piece of a brand — colors, icons, a card, a QR, packaged files.
+          Every one exports to <strong>Brand Board</strong>, which composes them into a single
+          shareable brand page you can hand to a client.
+        </p>
+      </div>
+
+      <!-- Orbit: 5 satellites around Brand Board -->
+      <div class="orbit" role="img"
+           aria-label="Palette Studio, Icon Kit, Digital Card, QR Creator and File Builder all feed into Brand Board at the center.">
+        <div class="orbit-ring" aria-hidden="true"></div>
+
+        <a class="orbit-hub" href="https://tools.opsette.io/brand-board/">
+          <span class="orbit-hub-media">
+            <img src="images/brand-board-icon.svg" alt="" />
+          </span>
+          <span class="orbit-hub-name">Brand Board</span>
+          <span class="orbit-hub-role">Composes the whole kit</span>
+        </a>
+
+        <a class="orbit-node n1" href="https://tools.opsette.io/palette-studio/">
+          <img src="images/palette-studio-icon.svg" alt="" />
+          <span class="orbit-node-name">Palette Studio</span>
+          <span class="orbit-node-role">Colors &amp; fonts</span>
+        </a>
+        <a class="orbit-node n2" href="https://tools.opsette.io/icon-kit/">
+          <img src="images/icon-kit-icon.svg" alt="" />
+          <span class="orbit-node-name">Icon Kit</span>
+          <span class="orbit-node-role">Favicons &amp; social</span>
+        </a>
+        <a class="orbit-node n3" href="https://tools.opsette.io/digital-card/">
+          <img src="images/digital-card-icon.svg" alt="" />
+          <span class="orbit-node-name">Digital Card</span>
+          <span class="orbit-node-role">Business card</span>
+        </a>
+        <a class="orbit-node n4" href="https://tools.opsette.io/qr-creator/">
+          <img src="images/qr-creator-icon.svg" alt="" />
+          <span class="orbit-node-name">QR Creator</span>
+          <span class="orbit-node-role">Branded QR codes</span>
+        </a>
+        <a class="orbit-node n5" href="https://tools.opsette.io/file-builder/">
+          <img src="images/file-builder-icon.svg" alt="" />
+          <span class="orbit-node-name">File Builder</span>
+          <span class="orbit-node-role">Packages the files</span>
+        </a>
+      </div>
+
+      <p class="feature-note">
+        Each tool copies its work as a small file you paste into Brand Board — no accounts,
+        nothing hosted. Save the finished board as one project file to reopen or revise later.
+      </p>
+    </section>
+
+    <!-- ============ NETWORKING PAIR ============ -->
+    <section class="pair-wrap" id="networking" aria-labelledby="networking-title">
+      <div class="pair-card">
+        <div class="pair-head">
+          <span class="feature-eyebrow">Better together</span>
+          <h2 id="networking-title">The networking pair</h2>
+          <p class="feature-lede">
+            Two halves of one handshake. Hand out a polished card, capture everyone else's —
+            they speak the same contact format, so a card made in one drops straight into the other.
+          </p>
+        </div>
+
+        <div class="pair-flow">
+          <a class="pair-app" href="https://tools.opsette.io/digital-card/">
+            <span class="pair-app-media"><img src="images/digital-card-icon.svg" alt="" /></span>
+            <span class="pair-app-name">Digital Card</span>
+            <span class="pair-app-role">The card you hand out — branded, with a QR that saves your info to any phone.</span>
+          </a>
+
+          <span class="pair-plus" aria-hidden="true">+</span>
+
+          <a class="pair-app" href="https://tools.opsette.io/contact-capture/">
+            <span class="pair-app-media"><img src="images/contact-capture-icon.svg" alt="" /></span>
+            <span class="pair-app-name">Contact Capture</span>
+            <span class="pair-app-role">Your rolodex — scan cards or QRs at an event and file people away with notes.</span>
+          </a>
+        </div>
+
+        <p class="pair-note">
+          Scan a Digital Card QR in Contact Capture and the contact fills in for you.
+          Contact Capture also <strong>syncs to Opsette</strong>, so captured people flow into your contacts, leads, or vendors.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ FULL LIBRARY ============ -->
+    <section class="library" id="library" aria-labelledby="library-title">
+      <div class="library-head">
+        <h2 id="library-title">All tools</h2>
+        <p class="library-lede">Every Opsette tool, A to Z. Free to use.</p>
+      </div>
+
       <div class="filter-bar" role="tablist" aria-label="Filter tools by category">
         <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
         <button class="filter-btn" data-filter="marketing" role="tab" aria-selected="false">Marketing</button>
@@ -39,240 +149,239 @@
         <button class="filter-btn" data-filter="utility" role="tab" aria-selected="false">Utility</button>
       </div>
 
-      <div class="grid">
+      <ul class="tool-list">
 
-        <a class="card" href="https://tools.opsette.io/streak-tracker/" data-category="productivity" style="--card-accent:#2f4f46;">
-          <div class="card-media">
-            <img src="images/streak-tracker-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Streak Tracker</h2>
-            <p class="card-desc">Track daily habits and build streaks.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="marketing">
+          <a href="https://tools.opsette.io/brand-board/">
+            <img class="tool-icon" src="images/brand-board-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Brand Board</span>
+              <span class="tool-desc">Compose colors, fonts, and assets into one shareable brand page.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/content-flow/" data-category="marketing" style="--card-accent:#426f62;">
-          <div class="card-media">
-            <img src="images/content-flow-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Content Flow</h2>
-            <p class="card-desc">Plan and organize your content pipeline.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="sales" data-opsette="sync">
+          <a href="https://tools.opsette.io/contact-capture/">
+            <img class="tool-icon" src="images/contact-capture-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Contact Capture <span class="badge badge-sync">Connects to Opsette</span></span>
+              <span class="tool-desc">Capture business cards &amp; flyers at events — never lose a connection.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/process-checklist/" data-category="productivity" style="--card-accent:#2f4f46;">
-          <div class="card-media">
-            <img src="images/process-checklist-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Process Checklist</h2>
-            <p class="card-desc">Reusable checklists for any repeatable process.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="marketing" data-opsette="store">
+          <a href="https://tools.opsette.io/content-flow/">
+            <img class="tool-icon" src="images/content-flow-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Content Flow <span class="badge badge-store">Saves to Opsette</span></span>
+              <span class="tool-desc">Plan and organize your content pipeline.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/route-planner/" data-category="utility" style="--card-accent:#cfae60;">
-          <div class="card-media">
-            <img src="images/route-planner-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Route Planner</h2>
-            <p class="card-desc">Plan multi-stop routes and trips.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="productivity">
+          <a href="https://tools.opsette.io/decision-wheel/">
+            <img class="tool-icon" src="images/decision-wheel-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Decision Wheel</span>
+              <span class="tool-desc">Spin a wheel to choose between options.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/decision-wheel/" data-category="productivity" style="--card-accent:#cfae60;">
-          <div class="card-media">
-            <img src="images/decision-wheel-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Decision Wheel</h2>
-            <p class="card-desc">Spin a wheel to choose between options.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="marketing">
+          <a href="https://tools.opsette.io/digital-card/">
+            <img class="tool-icon" src="images/digital-card-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Digital Card</span>
+              <span class="tool-desc">Create shareable digital business cards.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/objection-navigator/" data-category="sales" style="--card-accent:#426f62;">
-          <div class="card-media">
-            <img src="images/objection-navigator-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Objection Navigator</h2>
-            <p class="card-desc">Work through sales objections with prepared responses.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="utility">
+          <a href="https://tools.opsette.io/file-builder/">
+            <img class="tool-icon" src="images/file-builder-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">File Builder</span>
+              <span class="tool-desc">Bundle files into a ZIP, compress, convert, and resize — all in your browser.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/job-math/" data-category="finance" style="--card-accent:#cfae60;">
-          <div class="card-media">
-            <img src="images/job-math-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Job Math</h2>
-            <p class="card-desc">Quick calculations for jobs and quotes.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="productivity">
+          <a href="https://tools.opsette.io/frame-board/">
+            <img class="tool-icon" src="images/frame-board-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Frame Board</span>
+              <span class="tool-desc">Place before &amp; after photos side by side, then export a comparison.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/script-builder/" data-category="sales" style="--card-accent:#426f62;">
-          <div class="card-media">
-            <img src="images/script-builder-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Script Builder</h2>
-            <p class="card-desc">Build call and sales scripts you can reuse.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="utility">
+          <a href="https://tools.opsette.io/icon-kit/">
+            <img class="tool-icon" src="images/icon-kit-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Icon Kit</span>
+              <span class="tool-desc">Generate favicons, app icons, and social images in your browser.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/digital-card/" data-category="marketing" style="--card-accent:#2f4f46;">
-          <div class="card-media">
-            <img src="images/digital-card-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Digital Card</h2>
-            <p class="card-desc">Create shareable digital business cards.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="finance">
+          <a href="https://tools.opsette.io/job-math/">
+            <img class="tool-icon" src="images/job-math-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Job Math</span>
+              <span class="tool-desc">Quick calculations for jobs and quotes.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/qr-creator/" data-category="marketing" style="--card-accent:#cfae60;">
-          <div class="card-media">
-            <img src="images/qr-creator-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">QR Creator</h2>
-            <p class="card-desc">Generate QR codes for any link or text.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="sales">
+          <a href="https://tools.opsette.io/objection-navigator/">
+            <img class="tool-icon" src="images/objection-navigator-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Objection Navigator</span>
+              <span class="tool-desc">Work through sales objections with prepared responses.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/random-picker/" data-category="productivity" style="--card-accent:#426f62;">
-          <div class="card-media">
-            <img src="images/random-picker-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Random Picker</h2>
-            <p class="card-desc">Pick a random item from your list.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="productivity">
+          <a href="https://tools.opsette.io/palette-studio/">
+            <img class="tool-icon" src="images/palette-studio-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Palette Studio</span>
+              <span class="tool-desc">Generate a complete, accessible color palette and brand kit.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/review-request/" data-category="marketing" style="--card-accent:#cfae60;">
-          <div class="card-media">
-            <img src="images/review-request-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Review Request</h2>
-            <p class="card-desc">Request reviews from your customers.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="productivity">
+          <a href="https://tools.opsette.io/photo-studio/">
+            <img class="tool-icon" src="images/photo-studio-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Photo Studio</span>
+              <span class="tool-desc">Edit, retouch, and export photos in your browser — images never leave your device.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/receipt-maker/" data-category="finance" style="--card-accent:#2f4f46;">
-          <div class="card-media">
-            <img src="images/receipt-maker-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Receipt Maker</h2>
-            <p class="card-desc">Generate clean, printable receipts.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="productivity" data-opsette="store">
+          <a href="https://tools.opsette.io/process-checklist/">
+            <img class="tool-icon" src="images/process-checklist-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Process Checklist <span class="badge badge-store">Saves to Opsette</span></span>
+              <span class="tool-desc">Reusable checklists for any repeatable process.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/signature-studio/" data-category="marketing" style="--card-accent:#cfae60;">
-          <div class="card-media">
-            <img src="images/signature-studio-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Signature Studio</h2>
-            <p class="card-desc">Design polished email signatures.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="marketing">
+          <a href="https://tools.opsette.io/qr-creator/">
+            <img class="tool-icon" src="images/qr-creator-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">QR Creator</span>
+              <span class="tool-desc">Generate QR codes for any link or text.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/contact-capture/" data-category="sales" style="--card-accent:#2f4f46;">
-          <div class="card-media">
-            <img src="images/contact-capture-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Contact Capture</h2>
-            <p class="card-desc">Capture business cards &amp; flyers at networking events — never lose a connection.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="productivity">
+          <a href="https://tools.opsette.io/random-picker/">
+            <img class="tool-icon" src="images/random-picker-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Random Picker</span>
+              <span class="tool-desc">Pick a random item from your list.</span>
+            </span>
+          </a>
+        </li>
 
+        <li class="tool" data-category="finance">
+          <a href="https://tools.opsette.io/receipt-maker/">
+            <img class="tool-icon" src="images/receipt-maker-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Receipt Maker</span>
+              <span class="tool-desc">Generate clean, printable receipts.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/palette-studio/" data-category="productivity" style="--card-accent:#426f62;">
-          <div class="card-media">
-            <img src="images/palette-studio-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Palette Studio</h2>
-            <p class="card-desc">Generate a complete, accessible color palette and brand kit.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="marketing">
+          <a href="https://tools.opsette.io/review-request/">
+            <img class="tool-icon" src="images/review-request-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Review Request</span>
+              <span class="tool-desc">Request reviews from your customers.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/brand-board/" data-category="marketing" style="--card-accent:#2f4f46;">
-          <div class="card-media">
-            <img src="images/brand-board-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Brand Board</h2>
-            <p class="card-desc">Compose your colors, fonts, signature, and assets into one shareable brand page.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="utility">
+          <a href="https://tools.opsette.io/route-planner/">
+            <img class="tool-icon" src="images/route-planner-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Route Planner</span>
+              <span class="tool-desc">Plan multi-stop routes and trips.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/file-builder/" data-category="utility" style="--card-accent:#2f4f46;">
-          <div class="card-media">
-            <img src="images/file-builder-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">File Builder</h2>
-            <p class="card-desc">Bundle any files into one clean ZIP, and compress, convert, and resize — all in your browser.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="sales" data-opsette="store">
+          <a href="https://tools.opsette.io/script-builder/">
+            <img class="tool-icon" src="images/script-builder-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Script Builder <span class="badge badge-store">Saves to Opsette</span></span>
+              <span class="tool-desc">Build call and sales scripts you can reuse.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/icon-kit/" data-category="utility" style="--card-accent:#cfae60;">
-          <div class="card-media">
-            <img src="images/icon-kit-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Icon Kit</h2>
-            <p class="card-desc">Generate favicons, app icons, and social images in your browser.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="marketing">
+          <a href="https://tools.opsette.io/signature-studio/">
+            <img class="tool-icon" src="images/signature-studio-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Signature Studio</span>
+              <span class="tool-desc">Design polished email signatures.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/frame-board/" data-category="productivity" style="--card-accent:#426f62;">
-          <div class="card-media">
-            <img src="images/frame-board-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Frame Board</h2>
-            <p class="card-desc">Place before &amp; after photos side by side or in a grid, then export a comparison.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="productivity">
+          <a href="https://tools.opsette.io/smart-flow/">
+            <img class="tool-icon" src="images/smart-flow-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">SmartFlow</span>
+              <span class="tool-desc">Turn process steps into a clean swimlane diagram you can export.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/startup-planner/" data-category="finance" style="--card-accent:#426f62;">
-          <div class="card-media">
-            <img src="images/startup-planner-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">StartUp Planner</h2>
-            <p class="card-desc">Build a realistic startup budget by industry, then export a clean PDF.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="finance">
+          <a href="https://tools.opsette.io/startup-planner/">
+            <img class="tool-icon" src="images/startup-planner-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">StartUp Planner</span>
+              <span class="tool-desc">Build a realistic startup budget by industry, then export a clean PDF.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/smart-flow/" data-category="productivity" style="--card-accent:#2f4f46;">
-          <div class="card-media">
-            <img src="images/smart-flow-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">SmartFlow</h2>
-            <p class="card-desc">Turn a list of process steps into a clean swimlane diagram you can export and share.</p>
-          </div>
-        </a>
+        <li class="tool" data-category="productivity">
+          <a href="https://tools.opsette.io/streak-tracker/">
+            <img class="tool-icon" src="images/streak-tracker-icon.svg" alt="" loading="lazy" />
+            <span class="tool-text">
+              <span class="tool-name">Streak Tracker</span>
+              <span class="tool-desc">Track daily habits and build streaks.</span>
+            </span>
+          </a>
+        </li>
 
-        <a class="card" href="https://tools.opsette.io/photo-studio/" data-category="productivity" style="--card-accent:#426f62;">
-          <div class="card-media">
-            <img src="images/photo-studio-icon.svg" alt="" loading="lazy" class="card-icon" />
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Photo Studio</h2>
-            <p class="card-desc">Edit, retouch, and export photos right in your browser. Fast, private, and free — images never leave your device.</p>
-          </div>
-        </a>
-
-      </div>
+      </ul>
 
       <p class="empty-state" hidden>No tools in this category yet.</p>
     </section>
@@ -291,9 +400,8 @@
 
   <script>
     (function () {
-      // Category filter
       var buttons = document.querySelectorAll('.filter-btn');
-      var cards = document.querySelectorAll('.card[data-category]');
+      var tools = document.querySelectorAll('.tool[data-category]');
       var emptyState = document.querySelector('.empty-state');
 
       buttons.forEach(function (btn) {
@@ -307,9 +415,9 @@
           });
 
           var visible = 0;
-          cards.forEach(function (card) {
-            var show = filter === 'all' || card.getAttribute('data-category') === filter;
-            card.hidden = !show;
+          tools.forEach(function (tool) {
+            var show = filter === 'all' || tool.getAttribute('data-category') === filter;
+            tool.hidden = !show;
             if (show) visible++;
           });
 
