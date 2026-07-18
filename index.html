@@ -46,55 +46,82 @@
         <span class="feature-eyebrow">Works together</span>
         <h2 id="brand-kit-title">The Brand Kit pipeline</h2>
         <p class="feature-lede">
-          Five tools each make one piece of a brand — colors, icons, a card, a QR, packaged files.
-          Every one exports to <strong>Brand Board</strong>, which composes them into a single
-          shareable brand page you can hand to a client.
+          Six tools each make one piece of a brand — colors, favicons, banners, a card, a QR,
+          an email signature. <strong>Brand Board</strong> composes them into one shareable brand
+          page, then <strong>File Builder</strong> packages the whole thing into files you hand to a client.
         </p>
       </div>
 
-      <!-- Orbit: 5 satellites around Brand Board -->
-      <div class="orbit" role="img"
-           aria-label="Palette Studio, Icon Kit, Digital Card, QR Creator and File Builder all feed into Brand Board at the center.">
-        <div class="orbit-ring" aria-hidden="true"></div>
+      <!-- Pipeline: 6 makers → Brand Board (compose) → File Builder (package) -->
+      <div class="pipeline"
+           aria-label="Six maker tools — Palette Studio, Icon Kit, Banner Designer, Digital Card, QR Creator and Signature Studio — feed into Brand Board, which composes them; Brand Board then feeds File Builder, which packages the files.">
 
-        <a class="orbit-hub" href="https://tools.opsette.io/brand-board/">
-          <span class="orbit-hub-media">
-            <img src="images/brand-board-icon.svg" alt="" />
-          </span>
-          <span class="orbit-hub-name">Brand Board</span>
-          <span class="orbit-hub-role">Composes the whole kit</span>
-        </a>
+        <!-- Stage 1: the makers -->
+        <div class="pipe-stage pipe-makers">
+          <span class="pipe-stage-label">Make the pieces</span>
+          <ul class="maker-grid">
+            <li><a class="maker" href="https://tools.opsette.io/palette-studio/">
+              <img src="images/palette-studio-icon.svg" alt="" />
+              <span class="maker-name">Palette Studio</span>
+              <span class="maker-role">Colors &amp; fonts</span>
+            </a></li>
+            <li><a class="maker" href="https://tools.opsette.io/icon-kit/">
+              <img src="images/icon-kit-icon.svg" alt="" />
+              <span class="maker-name">Icon Kit</span>
+              <span class="maker-role">Favicons</span>
+            </a></li>
+            <li><a class="maker" href="https://tools.opsette.io/banner-designer/">
+              <img src="images/banner-designer-icon.svg" alt="" />
+              <span class="maker-name">Banner Designer</span>
+              <span class="maker-role">Social banners</span>
+            </a></li>
+            <li><a class="maker" href="https://tools.opsette.io/digital-card/">
+              <img src="images/digital-card-icon.svg" alt="" />
+              <span class="maker-name">Digital Card</span>
+              <span class="maker-role">Business card</span>
+            </a></li>
+            <li><a class="maker" href="https://tools.opsette.io/qr-creator/">
+              <img src="images/qr-creator-icon.svg" alt="" />
+              <span class="maker-name">QR Creator</span>
+              <span class="maker-role">Branded QR codes</span>
+            </a></li>
+            <li><a class="maker" href="https://tools.opsette.io/signature-studio/">
+              <img src="images/signature-studio-icon.svg" alt="" />
+              <span class="maker-name">Signature Studio</span>
+              <span class="maker-role">Email signature</span>
+            </a></li>
+          </ul>
+        </div>
 
-        <a class="orbit-node n1" href="https://tools.opsette.io/palette-studio/">
-          <img src="images/palette-studio-icon.svg" alt="" />
-          <span class="orbit-node-name">Palette Studio</span>
-          <span class="orbit-node-role">Colors &amp; fonts</span>
-        </a>
-        <a class="orbit-node n2" href="https://tools.opsette.io/icon-kit/">
-          <img src="images/icon-kit-icon.svg" alt="" />
-          <span class="orbit-node-name">Icon Kit</span>
-          <span class="orbit-node-role">Favicons &amp; social</span>
-        </a>
-        <a class="orbit-node n3" href="https://tools.opsette.io/digital-card/">
-          <img src="images/digital-card-icon.svg" alt="" />
-          <span class="orbit-node-name">Digital Card</span>
-          <span class="orbit-node-role">Business card</span>
-        </a>
-        <a class="orbit-node n4" href="https://tools.opsette.io/qr-creator/">
-          <img src="images/qr-creator-icon.svg" alt="" />
-          <span class="orbit-node-name">QR Creator</span>
-          <span class="orbit-node-role">Branded QR codes</span>
-        </a>
-        <a class="orbit-node n5" href="https://tools.opsette.io/file-builder/">
-          <img src="images/file-builder-icon.svg" alt="" />
-          <span class="orbit-node-name">File Builder</span>
-          <span class="orbit-node-role">Packages the files</span>
-        </a>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+
+        <!-- Stage 2: compose -->
+        <div class="pipe-stage pipe-hub-stage">
+          <span class="pipe-stage-label">Compose</span>
+          <a class="pipe-hub" href="https://tools.opsette.io/brand-board/">
+            <span class="pipe-hub-media"><img src="images/brand-board-icon.svg" alt="" /></span>
+            <span class="pipe-hub-name">Brand Board</span>
+            <span class="pipe-hub-role">Composes the whole kit into one shareable page</span>
+          </a>
+        </div>
+
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+
+        <!-- Stage 3: package & deliver -->
+        <div class="pipe-stage pipe-out-stage">
+          <span class="pipe-stage-label">Package &amp; deliver</span>
+          <a class="pipe-out" href="https://tools.opsette.io/file-builder/">
+            <span class="pipe-out-media"><img src="images/file-builder-icon.svg" alt="" /></span>
+            <span class="pipe-out-name">File Builder</span>
+            <span class="pipe-out-role">Unpacks the board into a tidy folder of client-ready files</span>
+          </a>
+        </div>
       </div>
 
       <p class="feature-note">
-        Each tool copies its work as a small file you paste into Brand Board — no accounts,
-        nothing hosted. Save the finished board as one project file to reopen or revise later.
+        Each maker copies its work as a small file you paste into Brand Board — no accounts,
+        nothing hosted. Save the finished board as one project file, then open it in File Builder
+        to export every asset as a ready-to-send folder.
       </p>
     </section>
 
